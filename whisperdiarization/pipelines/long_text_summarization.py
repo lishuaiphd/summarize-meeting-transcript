@@ -11,7 +11,11 @@ class LongTextSummarizationPipeline:
     def __init__(self, model_id: str = "facebook/bart-large-cnn"):
         logging.info("Initializing Text Summarization Pipeline")
         self.model_id = model_id
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.device = "cpu"
+        if torch.cuda.is_available():
+            self.device = "cuda:0"
+        elif torch.mps.is_available():
+            self.device = "mps"
         self.tokenizer = AutoTokenizer.from_pretrained(model_id)
         self.model_max_length = self.tokenizer.model_max_length
         self.model = None

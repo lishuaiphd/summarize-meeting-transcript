@@ -1,5 +1,5 @@
 ## Introduction
-Whiper diarization performs a diarized transcript of audio meetings. The result is a transcript with timestamped
+Whisper diarization performs a diarized transcript of audio meetings. The result is a transcript with timestamped
 dialog and speaker names. This program can also summarize the transcript.
 
 The solution is based on the Open-AI Whisper model for audio transcription. Diarization use the pyannote library.
